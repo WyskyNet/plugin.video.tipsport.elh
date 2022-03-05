@@ -83,7 +83,7 @@ class KodiHelper:
         if not xbmcvfs.exists(self.tmp_path):
             xbmcvfs.mkdirs(self.tmp_path)
         self.version = addon.getAddonInfo('version')
-        self.user_data = UserData(addon.getSetting('username'), addon.getSetting('password'), self.__get_site(addon))
+        self.user_data = UserData(addon.getSetting('username'), addon.getSetting('password'), self.__get_site(addon), addon.getSetting('javtg_headers_url'))
         self.send_crash_reports = addon.getSetting('send_crash_reports') == 'true'
         self.show_all_matches = addon.getSetting('show_all_matches') == 'true'
         self.put_all_matches_in_folders = addon.getSetting('folder_structure_all_matches') == 'true'
