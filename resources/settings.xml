@@ -40,6 +40,17 @@
                     </control>
                 </setting>
 
+                <setting id="javtg_headers_url" type="string" label="32012" help="">
+                    <level>0</level>
+                    <default/>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                </setting>
+
                 <setting id="quality_settings" type="action" label="31015" help="">
                     <level>0</level>
                     <data>Addon.OpenSettings(inputstream.adaptive)</data>

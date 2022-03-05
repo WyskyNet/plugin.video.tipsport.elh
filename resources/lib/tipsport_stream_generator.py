@@ -25,22 +25,21 @@ COMPETITION_LOGO = {
 }
 
 AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27"
-JATVG_URL = "https://www.dropbox.com/s/59cw5ey7ecv9ps3/tipsport.txt?dl=1"
 
 class Tipsport:
     """Class providing communication with Tipsport site"""
     def __init__(self, user_data, clean_function=None):
         self.session = requests.session()
+        self.user_data = user_data
         self._set_session_headers()
         self.logged_in = False
-        self.user_data = user_data
         self.stream_strategy_factory = StreamStrategyFactory(self.session, self.user_data)
         if clean_function is not None:
             clean_function()
 
     def _set_session_headers(self):
         self.session.headers['User-Agent'] = AGENT
-        data = urlopen(JATVG_URL).read().decode('utf-8').split("\n")
+        data = urlopen(self.user_data.javtg_headers_url).read().decode('utf-8').split("\n")
         for row in data:
             arr = row.split(':')
             if (len(arr[0]) != 0):
